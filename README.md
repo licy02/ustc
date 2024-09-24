@@ -2,8 +2,8 @@
 ## Introduction
 We trained a large language model that is exclusive to the USTC campus guide, realize **"LLM+USTC"**, and provide a full range of services for USTC people.  
 
-We collected a large amount of information that exists on campus websites, forums, official accounts, etc., and regularly optimized the model during the use of the model by teachers and students. 
-The goal of the research is that USTC-GPT can become an intelligent assistant and loyal partner of USTC people, and provide the following search and question answering functions:
+We collected various information from campus websites, forums, official accounts, etc., and regularly finetuned the model during the use of the model by teachers and students. 
+The goal of USTC-GPT is to provide the following search and question answering functions:
 
 (1)**Study Guidance** : USTC-GPT can provide students with course learning suggestions, such as the school's introduction to course selection, withdrawal, abandonment of grades, change of major, etc., course learning suggestions, etc.;  
 
@@ -14,17 +14,21 @@ The goal of the research is that USTC-GPT can become an intelligent assistant an
 (4)**Access Guide**: USTC-GPT can provide professional visit guides and services, including scenic spot visits, canteen recommendations, etc., to introduce the history and current development of USTC.
 
 ## Data 
-(1)**Official websites**, including the website of every department, the Academic Affairs Office, Treasury Division etc., mainly focusing on the introduction, faculty, news and notices.
+Initially, we collected raw data from campus websites, forums, official accounts, etc. Main souces are as follows:
 
-(2)**Entrance Guide** for fresh students, editted by several senior students.
+(1)Official websites, including the information of faculty, news and notices of departments.
 
-(3)**Social Media**: including Courses' Reviews Platform(评课社区)，Nan Qi Teapot(南七茶馆), zhihu, mainly focusing on useful blogs and comments related to USTC's campus life.
+(2)Entrance Guide for freshers, editted by senior students.
+
+(3)Social Media: including Courses' Reviews Platform, Nan Qi Forum, mainly focusing on useful blogs and comments instructive to USTC's campus life.
+
+The raw data is stored with a unique ID, which avoids the confusion caused by repetitive data.
 
 ## Technical Route
-Combined with vector database and efficient parameter fine-tuning, explored and realized the method of retrieval-augmented generation (RAG) to reduce hallucinations of LLMs.
+We combined the technique of vector database with efficient parameter fine-tuning, explored and realized the method of retrieval-augmented generation (RAG) to reduce hallucinations of LLMs.
 
-**Vector databases** (Milvus) are used to expand the knowledge boundaries of large language models.
-The efficient **parameter fine-tuning** method is used to make the model more suitable for the actual situation of the school.
+**Vector databases** are used to expand the knowledge boundaries of large language models, which was implemented on Milvus.
+The efficient **parameter fine-tuning** method makes the model more suitable for the actual situation of the school. We generated finetuning datasets and finetuned on LoRA.
 
 <img width="480" alt="technical route" src="https://github.com/licy02/ustc/assets/108739057/f11fa52c-7aab-4b6b-97b2-4abc2790350e">
 
